@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" fill="none">
+  <rect width="900" height="1200" fill="#111216"/>
+  <path d="M0 0h900v1200H0z" fill="url(#bg)"/>
+  <g opacity=".84">
+    <rect x="118" y="136" width="664" height="928" rx="4" stroke="#F7F7F5" stroke-opacity=".14"/>
+    <rect x="154" y="172" width="148" height="856" fill="#F7F7F5"/>
+    <rect x="334" y="172" width="72" height="856" fill="#F7F7F5" fill-opacity=".86"/>
+    <rect x="438" y="172" width="234" height="856" fill="#0900BD"/>
+    <rect x="704" y="172" width="42" height="856" fill="#AAAABA"/>
+  </g>
+  <path d="M154 368h592M154 638h592M154 908h592" stroke="#111216" stroke-width="34"/>
+  <text x="148" y="112" fill="#F7F7F5" fill-opacity=".66" font-family="Geist, Arial, sans-serif" font-size="24" font-weight="700">RHYTHM STUDY</text>
+  <text transform="translate(796 1040) rotate(-90)" fill="#F7F7F5" font-family="Geist, Arial, sans-serif" font-size="88" font-weight="900">SYSTEM</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111D1B"/>
+      <stop offset=".58" stop-color="#111216"/>
+      <stop offset="1" stop-color="#1D182A"/>
+    </linearGradient>
+  </defs>
+</svg>
