@@ -8,15 +8,7 @@
       content="Portfolio of Rohan Bhatia, a UI/UX and visual designer crafting product experiences, design systems, and visual stories."
     />
     <title>Rohan Bhatia | UI/UX & Visual Designer</title>
-    <style>@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap");
-
-@font-face {
-  font-family: "Biotif";
-  src: local("Biotif"), local("Biotif Regular"), local("Biotif-Regular");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+    <style>@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Inter:wght@100..900&display=swap");
 
 :root {
   color-scheme: dark;
@@ -37,8 +29,8 @@
   --radius: 18px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.36, 0, 0.24, 1);
-  --font: "Biotif", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --grid-font: "Bitcount Grid Single", "Biotif", ui-sans-serif, system-ui, sans-serif;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --grid-font: "Bitcount Grid Single", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 * {
@@ -58,7 +50,7 @@ body {
   overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
-  cursor: none;
+  cursor: auto;
   font-family: var(--font);
   letter-spacing: 0;
   user-select: none;
@@ -158,7 +150,21 @@ body.is-loaded .page-transition {
   z-index: 120;
   pointer-events: none;
   border-radius: 999px;
+  opacity: 0;
   translate: -50% -50%;
+}
+
+@media (hover: hover) and (min-width: 961px), (pointer: fine) and (min-width: 961px) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: none;
+  }
+
+  body.has-custom-cursor .cursor-dot,
+  body.has-custom-cursor .cursor-ring {
+    opacity: 1;
+  }
 }
 
 .cursor-dot {
@@ -2826,7 +2832,10 @@ if (playgroundRow && !prefersReducedMotion) {
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
 
-if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
+const canUseCustomCursor = window.matchMedia("(hover: hover) and (min-width: 961px)").matches || window.matchMedia("(pointer: fine) and (min-width: 961px)").matches;
+
+if (cursorDot && cursorRing && !prefersReducedMotion && canUseCustomCursor) {
+  document.body.classList.add("has-custom-cursor");
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
   let ringX = mouseX;
