@@ -2031,16 +2031,6 @@ body.cursor-cv .cursor-ring {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
 </style>
   </head>
   <body>
@@ -2478,11 +2468,7 @@ if (scrambleGreeting) {
     }
   };
 
-if (prefersReducedMotion) {
-  scrambleGreeting.textContent = greetings[0];
-} else {
-  loopGreetings();
-  }
+loopGreetings();
 }
 
 document.querySelectorAll("[data-hover-src]").forEach((image) => {
