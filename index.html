@@ -10,8 +10,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/bitcount-grid-single.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/biotif-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/biotif-semibold.ttf" as="font" type="font/ttf" crossorigin />
     <title>Rohan Bhatia | UI/UX & Visual Designer</title>
-    <style>@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap");
+    <style>@font-face {
+  font-family: "Bitcount Grid Single";
+  src: url("assets/fonts/bitcount-grid-single.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
 
 @font-face {
   font-family: "Biotif";
@@ -65,7 +74,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.36, 0, 0.24, 1);
   --font: "Biotif", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --grid-font: "Bitcount Grid Single", "Biotif", ui-sans-serif, system-ui, sans-serif;
+  --grid-font: "Bitcount Grid Single";
 }
 
 * {
@@ -811,6 +820,8 @@ body.cursor-cv .cursor-ring {
   display: flex;
   width: max-content;
   animation: marquee 26s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .marquee div {
@@ -1013,6 +1024,7 @@ body.cursor-cv .cursor-ring {
   width: max-content;
   gap: 18px;
   animation: playgroundScroll 34s linear infinite;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -1020,9 +1032,6 @@ body.cursor-cv .cursor-ring {
   animation-duration: 58s;
 }
 
-.playground-row.is-smooth-marquee {
-  animation: none;
-}
 
 .play-card {
   position: relative;
@@ -1493,6 +1502,8 @@ body.cursor-cv .cursor-ring {
   display: flex;
   width: max-content;
   animation: marquee 22s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .contact-marquee span {
@@ -1607,13 +1618,13 @@ body.cursor-cv .cursor-ring {
 
 @keyframes marquee {
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes playgroundScroll {
   to {
-    transform: translateX(calc(-50% - 9px));
+    transform: translate3d(calc(-50% - 9px), 0, 0);
   }
 }
 
@@ -2220,44 +2231,44 @@ body.cursor-cv .cursor-ring {
     <div class="playground-track" aria-label="Visual playground works">
       <div class="playground-row">
         
-            <article class="play-card reveal" style="--delay: 0ms">
-              <img decoding="async" src="assets/poster-horizon.jpg" alt="Horizon typography poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-horizon.jpg" alt="Horizon typography poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 75ms">
-              <img decoding="async" src="assets/poster-horse.jpg" alt="Horse portrait poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-horse.jpg" alt="Horse portrait poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 150ms">
-              <img decoding="async" src="assets/poster-marvel.jpg" alt="Marvel poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-marvel.jpg" alt="Marvel poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 225ms">
-              <img decoding="async" src="assets/poster-mind-rebooting.jpg" alt="Mind rebooting poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-mind-rebooting.jpg" alt="Mind rebooting poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 300ms">
-              <img decoding="async" src="assets/poster-tribe-lady.jpg" alt="Tribe lady portrait poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-tribe-lady.jpg" alt="Tribe lady portrait poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 375ms">
-              <img decoding="async" src="assets/poster-horizon.jpg" alt="Horizon typography poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-horizon.jpg" alt="Horizon typography poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 450ms">
-              <img decoding="async" src="assets/poster-horse.jpg" alt="Horse portrait poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-horse.jpg" alt="Horse portrait poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 525ms">
-              <img decoding="async" src="assets/poster-marvel.jpg" alt="Marvel poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-marvel.jpg" alt="Marvel poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 600ms">
-              <img decoding="async" src="assets/poster-mind-rebooting.jpg" alt="Mind rebooting poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-mind-rebooting.jpg" alt="Mind rebooting poster" loading="eager" fetchpriority="low" />
             </article>
           
-            <article class="play-card reveal" style="--delay: 675ms">
-              <img decoding="async" src="assets/poster-tribe-lady.jpg" alt="Tribe lady portrait poster" loading="lazy" />
+            <article class="play-card">
+              <img decoding="async" src="assets/poster-tribe-lady.jpg" alt="Tribe lady portrait poster" loading="eager" fetchpriority="low" />
             </article>
           
       </div>
@@ -2301,7 +2312,7 @@ body.cursor-cv .cursor-ring {
 
     <div class="tools-grid" aria-label="Design and development tools">
       <article class="tool-card reveal" style="--delay: 0ms">
-        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-figma.webp" alt="" loading="lazy" /></span>
+        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-figma.webp" alt="" loading="eager" /></span>
         <div class="tool-copy">
           <h3>Figma</h3>
           <p>Product Design</p>
@@ -2309,7 +2320,7 @@ body.cursor-cv .cursor-ring {
       </article>
 
       <article class="tool-card reveal" style="--delay: 80ms">
-        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-codex.jpeg" alt="" loading="lazy" /></span>
+        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-codex.jpeg" alt="" loading="eager" /></span>
         <div class="tool-copy">
           <h3>Codex</h3>
           <p>No-code Development</p>
@@ -2317,7 +2328,7 @@ body.cursor-cv .cursor-ring {
       </article>
 
       <article class="tool-card reveal" style="--delay: 160ms">
-        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-canva.jpeg" alt="" loading="lazy" /></span>
+        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-canva.jpeg" alt="" loading="eager" /></span>
         <div class="tool-copy">
           <h3>Canva</h3>
           <p>Graphic Design</p>
@@ -2325,7 +2336,7 @@ body.cursor-cv .cursor-ring {
       </article>
 
       <article class="tool-card reveal" style="--delay: 240ms">
-        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-toon-squid.png" alt="" loading="lazy" /></span>
+        <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-toon-squid.png" alt="" loading="eager" /></span>
         <div class="tool-copy">
           <h3>Toon Squid</h3>
           <p>Motion Design</p>
@@ -2333,7 +2344,7 @@ body.cursor-cv .cursor-ring {
       </article>
 
       <article class="tool-card reveal" style="--delay: 320ms">
-          <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-adobe.jpg" alt="" loading="lazy" /></span>
+          <span class="tool-icon" aria-hidden="true"><img decoding="async" src="assets/tool-adobe.jpg" alt="" loading="eager" /></span>
         <div class="tool-copy">
           <h3>Adobe Suite</h3>
           <p>Editing, Illustration &amp; more...</p>
@@ -2803,56 +2814,6 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
-
-const playgroundRow = document.querySelector(".playground-row");
-
-if (playgroundRow && !prefersReducedMotion) {
-  const playgroundTrack = playgroundRow.closest(".playground-track");
-  let loopDistance = 0;
-  let normalSpeed = 0;
-  let slowSpeed = 0;
-  let currentSpeed = 0;
-  let targetSpeed = 0;
-  let position = 0;
-  let lastTime = performance.now();
-
-  const measurePlayground = () => {
-    const isSlowing = targetSpeed === slowSpeed && slowSpeed > 0;
-    const gap = parseFloat(window.getComputedStyle(playgroundRow).gap) || 0;
-    loopDistance = playgroundRow.scrollWidth / 2 + gap / 2;
-    normalSpeed = loopDistance / 34;
-    slowSpeed = loopDistance / 58;
-    currentSpeed ||= normalSpeed;
-    targetSpeed = isSlowing ? slowSpeed : normalSpeed;
-    position %= loopDistance || 1;
-  };
-
-  const animatePlayground = (time) => {
-    if (!loopDistance) {
-      measurePlayground();
-      requestAnimationFrame(animatePlayground);
-      return;
-    }
-
-    const delta = Math.min((time - lastTime) / 1000, 0.05);
-    lastTime = time;
-    currentSpeed += (targetSpeed - currentSpeed) * 0.08;
-    position = (position + currentSpeed * delta) % loopDistance;
-    playgroundRow.style.transform = `translateX(${-position}px)`;
-    requestAnimationFrame(animatePlayground);
-  };
-
-  playgroundRow.classList.add("is-smooth-marquee");
-  measurePlayground();
-  (playgroundTrack || playgroundRow).addEventListener("pointerenter", () => {
-    targetSpeed = slowSpeed;
-  });
-  (playgroundTrack || playgroundRow).addEventListener("pointerleave", () => {
-    targetSpeed = normalSpeed;
-  });
-  window.addEventListener("resize", measurePlayground, { passive: true });
-  requestAnimationFrame(animatePlayground);
-}
 
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
