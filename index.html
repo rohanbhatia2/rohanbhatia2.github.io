@@ -2813,6 +2813,55 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
+const playgroundTrack = document.querySelector(".playground-track");
+const playgroundRow = document.querySelector(".playground-row");
+
+if (playgroundTrack && playgroundRow && typeof playgroundRow.getAnimations === "function") {
+  let marqueeAnimation = null;
+  let currentPlaybackRate = 1;
+  let targetPlaybackRate = 1;
+  let playbackFrameId = 0;
+
+  const getPlaygroundAnimation = () => {
+    marqueeAnimation ||= playgroundRow.getAnimations().find((animation) => animation.effect?.target === playgroundRow) || null;
+    return marqueeAnimation;
+  };
+
+  const applyPlaybackRate = (rate) => {
+    const animation = getPlaygroundAnimation();
+    if (!animation) return;
+    if (typeof animation.updatePlaybackRate === "function") {
+      animation.updatePlaybackRate(rate);
+      return;
+    }
+    animation.playbackRate = rate;
+  };
+
+  const animatePlaybackRate = () => {
+    currentPlaybackRate += (targetPlaybackRate - currentPlaybackRate) * 0.18;
+    if (Math.abs(targetPlaybackRate - currentPlaybackRate) < 0.01) {
+      currentPlaybackRate = targetPlaybackRate;
+      playbackFrameId = 0;
+      applyPlaybackRate(currentPlaybackRate);
+      return;
+    }
+
+    applyPlaybackRate(currentPlaybackRate);
+    playbackFrameId = requestAnimationFrame(animatePlaybackRate);
+  };
+
+  const setPlaybackRate = (rate) => {
+    targetPlaybackRate = rate;
+    if (!playbackFrameId) playbackFrameId = requestAnimationFrame(animatePlaybackRate);
+  };
+
+  playgroundTrack.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "touch") return;
+    setPlaybackRate(0.58);
+  });
+  playgroundTrack.addEventListener("pointerleave", () => setPlaybackRate(1));
+}
+
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
 
