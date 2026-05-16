@@ -2515,7 +2515,8 @@ if (spotifyHoverTrigger && spotifyPlayer) {
 
 const smoothScroller = (() => {
   const root = document.documentElement;
-  const prefersNativeScroll = prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches;
+  const hasDesktopPointer = window.matchMedia("(pointer: fine)").matches || window.matchMedia("(hover: hover)").matches;
+  const prefersNativeScroll = !hasDesktopPointer;
 
   const getScrollPaddingTop = () => parseFloat(window.getComputedStyle(root).scrollPaddingTop) || 0;
   const getScrollMarginTop = (target) => parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
@@ -2529,7 +2530,7 @@ const smoothScroller = (() => {
   if (prefersNativeScroll) {
     return {
       toElement(target) {
-        target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       },
     };
   }
@@ -2852,7 +2853,7 @@ const cursorRing = document.querySelector(".cursor-ring");
 
 const canUseCustomCursor = window.matchMedia("(hover: hover) and (min-width: 961px)").matches || window.matchMedia("(pointer: fine) and (min-width: 961px)").matches;
 
-if (cursorDot && cursorRing && !prefersReducedMotion && canUseCustomCursor) {
+if (cursorDot && cursorRing && canUseCustomCursor) {
   document.body.classList.add("has-custom-cursor");
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
